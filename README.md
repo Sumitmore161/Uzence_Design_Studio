@@ -83,3 +83,18 @@ Storybook runs at http://localhost:6006, where you can preview components like D
 ```bash
 npm run test
 ```
+
+## Screenshots
+
+### Console Output for Tests (Both InputField and DataTable)
+
+
+![Test Output Console](./Images/Console_Output_for_Tests.png)
+
+### Screenshot of Datafield storybook
+
+![DataField Storybook Browser Image](./Images/DataTable.png)
+
+### Screenshot of InputField storybook
+
+![Test Output Console](./Images/InputField.png)
