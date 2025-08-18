@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+# Uzence Design Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project contains reusable React components built with TypeScript and styled with TailwindCSS. It uses **Vitest** for testing and **Storybook** for component documentation.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Components
 
-## Expanding the ESLint configuration
+### InputField
+A versatile input component supporting labels, helper text, error messages, disabled state, variants, sizes, and controlled values.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Props:**
+- `value?: string` – Input value (controlled)
+- `onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void` – Change handler
+- `label?: string` – Input label
+- `placeholder?: string` – Placeholder text
+- `helperText?: string` – Helper text
+- `errorMessage?: string` – Error message for invalid input
+- `disabled?: boolean` – Disable the input
+- `invalid?: boolean` – Marks the input as invalid
+- `variant?: "filled" | "outlined" | "ghost"` – Visual variant
+- `size?: "sm" | "md" | "lg"` – Size of input
+- `type?: "text" | "password"` – Input type
 
-- Configure the top-level `parserOptions` property like this:
+**Stories:**
+- Default
+- Invalid
+- Disabled
+- Variants
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+**Tests:**
+- Rendering label, placeholder, helper text
+- Error message rendering
+- Disabled input
+- `onChange` handler
+- Variant and size classes
+
+### DataTable
+A table component supporting headers, rows, sorting, loading, empty states, and row selection.
+
+**Tests:**
+- Header rendering
+- Row rendering
+- Loading state
+- Empty state
+- Sorting
+- Row selection
+
+---
+
+## Scripts
+
+- `npm run dev` – Run Vite development server  
+- `npm run build` – Build production  
+- `npm run storybook` – Run Storybook  
+- `npm run test` – Run Vitest tests
+
+---
+
+## Setup
+
+Follow these steps to set up the project locally:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Sumitmore161/Uzence_Design_Studio.git
+cd Uzence_Design_Studio
+```
+### 2. Install Dependencies 
+
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 3.Run Storybook (for component previews)
+```bash
+npm run storybook
+```
+Storybook runs at http://localhost:6006, where you can preview components like DataTable and InputField.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 4.Run tests
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run test
 ```
